@@ -137,8 +137,6 @@ void AVLTree::leftRotation(AVLNode *C)
     A->setParent(C);
 
     assert(A->balanceFactor() == 2);
-    // A->setBalanceFactor( ((D != NULL) ? 1 : 0) +
-    //                   ((A->left() != NULL) ? -1 : 0) );
     A->setBalanceFactor(0);
     assert(C->balanceFactor() == 1);
     C->setBalanceFactor(0);
@@ -191,8 +189,6 @@ void AVLTree::rightRotation(AVLNode *B)
     A->setParent(B);
 
     assert(A->balanceFactor() == -2);
-    // A->setBalanceFactor( ((E != NULL) ? -1 : 0) +
-    //                   ((A->right() != NULL) ? 1 : 0) );
     A->setBalanceFactor(0);
     assert(B->balanceFactor() == -1);
     B->setBalanceFactor(0);
