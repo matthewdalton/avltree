@@ -58,9 +58,10 @@ int main()
     int numvalues = (rand() % 100001) + 100000;
     int *values = (int *)malloc(sizeof(int) * numvalues);
     int minv = INT_MAX, maxv = -1;
+    int maxinput = 500000;
     for (int i = 0; i < numvalues; i++)
     {
-        values[i] = (rand() % 500000) + 1;
+        values[i] = (rand() % maxinput) + 1;
         if (values[i] > maxv)
             maxv = values[i];
         if (values[i] < minv)
@@ -82,6 +83,19 @@ int main()
     balanceCheck(&tree, numvalues);
     cout << "Min value is " << tree.min()->value() << ", should be " << minv << endl;
     cout << "Max value is " << tree.max()->value() << ", should be " << maxv << endl;
+
+    int searchVal = values[numvalues / 3];
+    AVLNode *found = tree.search(searchVal);
+    cout << "Searching for " << searchVal << "; found node with value "
+	 << found->value() << endl;
+    found = tree.search(maxinput + 5); // out of range
+    cout << "Searching for out-of-range value " << (maxinput + 5)
+	 << " returned " << (found == NULL ? "NULL" : "not NULL!") << endl;
+    if (found != NULL)
+    {
+	cout << "Out-of-range value search returned node with value "
+	     << found->value() << endl;
+    }
 
     return 0;
 }

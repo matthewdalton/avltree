@@ -569,3 +569,26 @@ AVLNode *AVLTree::prev(AVLNode *node) const
 
     return NULL;
 }
+
+static AVLNode *searchSubtree(AVLNode *sub, int val)
+{
+    if (sub->value() == val)
+	return sub;
+
+    if (val < sub->value())
+    {
+	if (sub->left() != NULL)
+	    return searchSubtree(sub->left(), val);
+    }
+    else
+    {
+	if (sub->right() != NULL)
+	    return searchSubtree(sub->right(), val);
+    }
+    return NULL;
+}
+
+AVLNode *AVLTree::search(int val) const
+{
+    return searchSubtree(m_root, val);
+}
