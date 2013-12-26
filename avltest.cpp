@@ -8,16 +8,16 @@ using namespace std;
 int getHeight(AVLNode *subtree)
 {
     if (subtree == NULL)
-	return 0;
+        return 0;
 
     int left_h = getHeight(subtree->left());
     int right_h = getHeight(subtree->right());
 
     if (subtree->balanceFactor() != right_h - left_h)
     {
-	cout << "Incorrect balance factor at node [" << subtree->value()
-	     << "] - should be " << (right_h - left_h)
-	     << ", is " << subtree->balanceFactor() << "." << endl;
+        cout << "Incorrect balance factor at node [" << subtree->value()
+             << "] - should be " << (right_h - left_h)
+             << ", is " << subtree->balanceFactor() << "." << endl;
     }
 
     return 1 + (left_h > right_h ? left_h : right_h);
@@ -32,7 +32,7 @@ void balanceCheck(AVLTree *tree, int numvalues)
     //          2
     int bestHeight = 1 + floor(log(numvalues) / log(2));
     //if (bestHeight != height)
-	cout << "Theoretical best height is " << bestHeight << endl;
+        cout << "Theoretical best height is " << bestHeight << endl;
 }
 
 int main()
@@ -61,10 +61,10 @@ int main()
     for (int i = 0; i < numvalues; i++)
     {
         values[i] = (rand() % 500000) + 1;
-	if (values[i] > maxv)
-	    maxv = values[i];
-	if (values[i] < minv)
-	    minv = values[i];
+        if (values[i] > maxv)
+            maxv = values[i];
+        if (values[i] < minv)
+            minv = values[i];
     }
 #endif
 
@@ -75,7 +75,7 @@ int main()
         tree.insert(values[i]);
         //cout << "Inserted " << values[i] << endl;
         //tree.dumpTree();
-	//balanceCheck(&tree, i+1);
+        //balanceCheck(&tree, i+1);
     }
 
     cout << "Num values: " << numvalues << endl;

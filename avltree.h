@@ -5,8 +5,8 @@ class AVLNode
 {
 public:
     explicit AVLNode(int val, AVLNode *parent=NULL)
-	: m_value(val), m_balanceFactor(0),
-	  m_left(NULL), m_right(NULL), m_parent(parent) {}
+        : m_value(val), m_balanceFactor(0),
+          m_left(NULL), m_right(NULL), m_parent(parent) {}
 
     int value() const
     { return m_value; }
@@ -66,7 +66,7 @@ class AVLTree
 {
 public:
     AVLTree()
-	: m_root(NULL) {}
+        : m_root(NULL) {}
 
     AVLNode *search(int val) const;
     void insert(int val);
