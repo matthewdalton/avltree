@@ -17,17 +17,6 @@ public:
     void setBalanceFactor(int bf)
     { m_balanceFactor = bf; }
 
-#if 0
-    // Side-effects: adjusts the parent node's balance factor to match
-    void incBF();
-    void decBF();
-
-    // Side-effects. Call these versions during insert.
-    void incBFi();
-    void decBFi();
-#endif
-
-    // No side-effects
     void inc()
     { m_balanceFactor++; }
     void dec()
